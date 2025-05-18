@@ -9,8 +9,8 @@ This is a Notification Service built using FastAPI and Celery, designed to send 
     * `POST /api/v1/notifications`: Send a notification to a user.
     * `GET /api/v1/users/{id}/notifications`: Get all notifications for a specific user.
 2.  **Notification Types:**
-    * Email notifications (sending via SMTP).
-    * SMS notifications (simulated due to free service limitations, designed for integration with an SMS gateway).
+    * Email notifications (sending via SMTP and also stored in a MongoDB database).
+    * SMS notifications (simulated due to free service limitations, designed for integration with an SMS gateway and so stored in a MongoDB database).
     * In-app notifications (stored in a MongoDB database).
 3.  **Bonus Points:**
     * **Queue:** Uses Celery with RabbitMQ for asynchronous processing of notifications.
@@ -27,10 +27,9 @@ Follow these steps to set up and run the project locally:
 1.  **Clone the Repository:**
     Open your terminal and navigate to the directory where you want to clone the project. Then run:
     ```bash
-    git clone <YOUR_GIT_REPOSITORY_LINK>
-    cd your_repository_name
+    git clone [<YOUR_GIT_REPOSITORY_LINK>](https://github.com/LalatenduR/PepsalesAssignment)
+    cd PepsalesAssignment
     ```
-    *(Replace `<YOUR_GIT_REPOSITORY_LINK>` with the actual link to your Git repository and `your_repository_name` with the name of the cloned directory.)*
 
 2.  **Install Python Virtual Environment:**
     ```bash
@@ -76,26 +75,22 @@ Follow these steps to set up and run the project locally:
     ```
     # MongoDB Connection URL (Replace with your actual connection details)
     # If your MongoDB has authentication:
-    MONGODB_URL=mongodb://your_mongodb_username:your_mongodb_password@your_mongodb_host:your_mongodb_port/your_mongodb_database
-    # If your MongoDB is local and doesn't have authentication (NOT RECOMMENDED for production):
-    # MONGODB_URL=mongodb://localhost:27017/your_mongodb_database
+    MONGODB_URL=mongodb://your_mongodb_username:your_mongodb_password@your_mongodb_host:your_mongodb_port/
+
 
     # MongoDB Collection Name
     COLLECTION_NAME=notifications
 
     # Email Sending Configuration (SMTP)
     SMTP_HOST=smtp.example.com  # e.g., smtp.gmail.com
-    SMTP_PORT=587             # e.g., 587 (TLS) or 465 (SSL)
+    SMTP_PORT=587             # e.g., 587 (TLS) 
     SMTP_USERNAME=your_email_username
-    SMTP_PASSWORD=your_email_password  # NEVER commit your actual password!
+    SMTP_PASSWORD=your_email_password 
     FROM_EMAIL=your_sending_email@example.com
 
-    # Celery/RabbitMQ Configuration (Replace with your actual settings)
+    # Celery/RabbitMQ Configuration 
     # Default RabbitMQ setup for local development (NOT for production):
     # CELERY_BROKER_URL=amqp://guest:guest@localhost:5672//
-    # Custom RabbitMQ setup:
-    CELERY_BROKER_URL=amqp://your_rabbitmq_username:your_rabbitmq_password@your_rabbitmq_host:your_rabbitmq_port//
-    # CELERY_RESULT_BACKEND=redis://your_redis_host:your_redis_port/your_redis_db  # If using Redis as the result backend
     ```
 
 ## Running the Project

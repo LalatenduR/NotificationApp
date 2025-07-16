@@ -27,8 +27,8 @@ Follow these steps to set up and run the project locally:
 1.  **Clone the Repository:**
     Open your terminal and navigate to the directory where you want to clone the project. Then run:
     ```bash
-    git clone [<YOUR_GIT_REPOSITORY_LINK>](https://github.com/LalatenduR/PepsalesAssignment)
-    cd PepsalesAssignment
+    git clone [<YOUR_GIT_REPOSITORY_LINK>](https://github.com/LalatenduR/Notification App)
+    cd Notification App
     ```
 
 2.  **Install Python Virtual Environment:**
